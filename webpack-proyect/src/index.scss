@@ -1,0 +1,15 @@
+
+//declaro una variable con un color abajo la puedo reusar
+$labelColor: rgb(255, 255, 75);
+
+//la sintaxis de sass es parecida a css pero se ve mejor la indentacion
+.parent {
+
+    .box{
+        width: 200px;
+        height: 300px;
+        border: 3px solid rgb(89, 70, 131);
+        color: $labelColor;
+
+    }
+}
