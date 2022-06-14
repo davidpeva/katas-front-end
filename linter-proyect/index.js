@@ -14,7 +14,6 @@
 //let name = "hola"
 //let name = 'hola'
 //let name = "hola";
-
 //otro ejemplo
 //const name = () => {}
 //const name = () = {}
