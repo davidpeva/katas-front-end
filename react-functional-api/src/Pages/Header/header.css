@@ -1,0 +1,16 @@
+/* Clase del 20-06-22 */
+nav {
+    display: flex;
+    font-size: 25px;
+    justify-content: space-around;
+    min-height: 60px;
+    background-color: whitesmoke;
+    color: rgb(52, 52, 63);
+}
+
+.nav-links {
+    width: 30%;
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+}
