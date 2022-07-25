@@ -3,6 +3,7 @@ import Header from "./Pages/Header/Header";
 import Footer from "./Pages/Footer/Footer";
 import { Product } from "./Pages/Product/Product";
 import { Routes, Route, BrowserRouter as Router } from 'react-router-dom'
+import Form from "./Components/Form/Form";
 
 
 export default function App() {
@@ -16,15 +17,23 @@ export default function App() {
             path="/"
             element={
               <Home
-                senProduct={(_id) => (('id desde el componente padre', _id))} 
+                senProduct={(_id) => (('id desde el componente padre', _id))}
               />
             }
           />
           <Route
             className='nombres'
-            path="/product/:_id" 
+            path="/product/:_id"
             element={
-              <Product 
+              <Product
+              />
+            }
+          />
+          <Route
+            path='/form/'
+            className='nombres'
+            element={
+              <Form
               />
             }
           />
