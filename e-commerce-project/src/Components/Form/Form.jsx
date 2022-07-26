@@ -21,6 +21,7 @@ export default function Form() {
         getItems()
     })
 
+    //haciendo cambios
     // const searcher = (item) => {
     //     item.filter((product) => {
     //         return product.product_name.toString().toLowerCase().includes(search)
