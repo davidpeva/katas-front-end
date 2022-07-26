@@ -4,7 +4,9 @@
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
-    "axios": "^0.27.2"
+    "axios": "^0.27.2",
+    "npm": "^8.14.0",
+    "yarn": "^1.22.19"
   },
   "devDependencies": {
     "eslint": "^8.16.0"
