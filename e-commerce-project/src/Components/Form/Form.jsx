@@ -13,7 +13,7 @@ export default function Form() {
             const res = await axios.get('https://ecomerce-master.herokuapp.com/api/v1/item')
             setItem(res.data)
         } catch (error) {
-            console.log('error Api', error);
+            console.log('error Api', error123);
         }
     }
 
