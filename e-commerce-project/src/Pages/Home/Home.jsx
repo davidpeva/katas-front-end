@@ -5,9 +5,12 @@ import './home.css'
 import { useEffect, useState } from 'react'
 import Pagination from '../../Components/Pagination/Pagination'
 
-export const Home = ({ senProduct, nameProp }) => {
-
+export const Home = ({ formText }) => {
+  //ESTE ME TRAE LOS PRODUCTOS
   const [item, setItem] = useState([])
+
+  //ESTE ES PARA EL INPUT Y PODER HACER LA COPIA
+  const [filterItems, setFilterItems] = useState([])
 
   //LOGICA PARA LA PAGINACION
   const [currentPage, setCurrentPage] = useState(1)
@@ -16,7 +19,7 @@ export const Home = ({ senProduct, nameProp }) => {
   //LOGICA PARA LA PAGINACION
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPage = indexOfLastPost - postsPerPage;
-  const currentPost = item.slice(indexOfFirstPage, indexOfLastPost)
+  const currentPost = filterItems.slice(indexOfFirstPage, indexOfLastPost)
 
   //LOGICA PARA DAR CLICK SOBRE UN NUMERO Y QUE SE MUEVA
   const paginate = (pageNumber) => setCurrentPage(pageNumber)
@@ -28,6 +31,7 @@ export const Home = ({ senProduct, nameProp }) => {
     try {
       const res = await axios.get('https://ecomerce-master.herokuapp.com/api/v1/item')
       setItem(res.data)
+      setFilterItems(res.data)
     } catch (error) {
       console.log('error Api', error);
     }
@@ -35,26 +39,38 @@ export const Home = ({ senProduct, nameProp }) => {
 
   useEffect(() => {
     getItems()
-  }, [])
+  },[])
 
-  // useEffect(() => {
-  //   console.log('nameProp', nameProp);
-  // }, [nameProp])
+  useEffect(() => {
+    console.log(formText)
+    
+    const searcher = () => {
+      let data = item.filter ((product) => {
+          return product.product_name.toLowerCase().includes(formText.toLowerCase())
+      })
+      console.log(data)
+      if(data.length === 0){
+          setFilterItems(filterItems)
+      }
+      setFilterItems(data)
+    }
+    searcher()
+  },[formText])
 
 
   return (
     <div>
       <div>
-        <ul className='nombres estilos'>
+        <ul className='nombres estilos' >
           {
             //ACA USO CURRENTPOST.MAP Y NO ITEM.MAP PARA QUE SOLO ME ACOMODE LOS 30 CON ITEM.MAP ME ACOMODA LOS 200
             currentPost.map(product => (
-                <li className='cards' key={product._id} onClick={((_id) => senProduct(product._id))}>
+                <li className='cards' key={product._id}>
 
                   <Link to={`/product/${product._id}`}>
                     
                   {
-                    product.image
+                      product.image
                       ?
                       <img className='pictures' src={product.image} alt={product._id} />
                       :

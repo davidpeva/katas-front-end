@@ -1,27 +1,35 @@
-import React from 'react'
-import { useState, useEffect } from 'react'
-import axios from 'axios'
-import { Home } from '../../Pages/Home/Home'
+// import React from 'react'
+// import { useState, useEffect } from 'react'
+// import axios from 'axios'
+// import { Home } from '../../Home/Home'
 
 
-export default function Form() {
-    const [item, setItem] = useState([])
-    const [search, setSearch] = useState([])
+// export default function Form() {
+//     const [item, setItem] = useState([])
+//     const [search, setSearch] = useState('')
 
-    const getItems = async () => {
-        try {
-            const res = await axios.get('https://ecomerce-master.herokuapp.com/api/v1/item')
-            setItem(res.data)
-        } catch (error) {
-            console.log('error Api', error123);
-        }
-    }
+//     const getItems = async () => {
+//         try {
+//             const res = await axios.get('https://ecomerce-master.herokuapp.com/api/v1/item')
+//             setItem(res.data)
+//         } catch (error) {
+//             console.log('error Api', error);
+//         }
+//     }
 
-    useEffect(() => {
-        getItems()
-    })
+//     useEffect(() => {
+//         getItems()
+//     })
 
-    //haciendo cambios
+
+//     const searcher = (item) => {
+//         let data = item.filter ((product) => {
+//             return product.product_name.toString().toLowerCase().includes(search)
+//         })
+//     setItem(data)
+//     }
+
+
     // const searcher = (item) => {
     //     item.filter((product) => {
     //         return product.product_name.toString().toLowerCase().includes(search)
@@ -29,46 +37,47 @@ export default function Form() {
     //     setItem(item)
     // }
 
-    const handleChange = e => {
-        setSearch(e.target.value)
-        searcher(item)
-        console.log(e.target.value)
-    }
 
-    const searcher = (item) => {
-        return item.filter((product) => {
-            if (item === 0){
-                return item
-            }
-            else if(product.product_name.toLowerCase().includes(item))
-            return product
-        })
-        setSearch(item)
-        console.log(item)
-    }
+    // const searcher = (item) => {
+    //     return item.filter((product) => {
+    //         if (item === 0){
+    //             return item
+    //         }
+    //         else if(product.product_name.toLowerCase().includes(item))
+    //         return product
+    //     })
+    //     // setItem(item)
+    //     // console.log(item)
+    // }
+
+//     const handleChange = e => {
+//         setSearch(e.target.value)
+//         searcher(item)
+//         console.log(e.target.value)
+//     }
 
 
-    return (
-        <div>
-            <form >
-                <input
-                    className='form-control-2 me-2'
-                    type='search'
-                    placeholder='Search'
-                    aria-label='Search'
-                    value={search}
-                    onChange={handleChange}
-                />
-                <button type='button' className='btn btn-info' onClick={handleChange}>Search</button>
-            </form>
-            {
-                item.map(product => {
-                        <Home key={product._id} nombre={product.product_name} imagen={product.image} price={product.price}></Home>
-                })
-            }
-        </div>
-    )
-}
+//     return (
+//         <div>
+//             <form >
+//                 <input
+//                     className='form-control-2 me-2'
+//                     type='search'
+//                     placeholder='Search'
+//                     aria-label='Search'
+//                     value={search}
+//                     onChange={handleChange}
+//                 />
+//                 <button type='button' className='btn btn-info' onClick={handleChange}>Search</button>
+//             </form>
+//             {
+//                 item.map(product => {
+//                         <Home key={product._id} nombre={product.product_name} imagen={product.image} price={product.price}></Home>
+//                 })
+//             }
+//         </div>
+//     )
+// }
 
 
 // export default function Form() {

@@ -1,18 +1,17 @@
 import './header.css'
 import { Navbar, Container, Nav } from 'react-bootstrap';
 import { Link } from 'react-router-dom'
-import Form from '../../Components/Form/Form';
 
 
+export default function Header( {handleForm, formText} ) {
 
-export default function Header(handleChange ) {
     const refreshPage = () => { window.location.reload() }
 
-    const handleRefresh = event => { 
-        event.preventDefault() 
+    const handleRefresh = event => {
+        event.preventDefault()
     }
 
- 
+
     return (
         <header>
             <Navbar bg="dark" expand="lg" variant="dark" className='height'>
@@ -25,16 +24,20 @@ export default function Header(handleChange ) {
                             <Nav.Link to='/' className='options' onClick={refreshPage} onSubmit={handleRefresh} >Home</Nav.Link>|{""}
                             <Nav.Link to='product-info' className='options'>Info Producto</Nav.Link>
                         </Nav>
-                        <Form></Form>
-                        {/* <Form className="d-flex" onSubmit={searchItem} >
-                            <FormControl type="search"  placeholder="Search" className="me-2" aria-label="Search" />
-                            <Button variant="outline-success" onSubmit={searchItem} >Search</Button>
-
-                        </Form> */}
+                        <form >
+                            <input
+                                className='form-control-2 me-2'
+                                type='search'
+                                placeholder='Search'
+                                aria-label='Search'
+                                value={formText}
+                                onChange={(e) => handleForm(e.target.value)}
+                            />
+                            <button type='button' className='btn btn-info'>Search</button>
+                        </form>
                     </Navbar.Collapse>
                 </Container>
             </Navbar>
-
         </header>
     )
 }

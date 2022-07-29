@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import './product.css'
+import error from '../../Assets/404.jfif'
 import { useParams } from 'react-router-dom'
 
 
 
 export const Product = () => {
     const [info, setInfo] = useState([])
-    
+
     //este me ayuda a q en el link dinamico me cargue el el dato
     const params = useParams()
 
@@ -22,12 +23,22 @@ export const Product = () => {
                     console.log('error Api', error);
                 }
             })()
-    },[params])//aca me ponia problema esLint pero la dependencia es los parametros q vienen del click
+    }, [params])//aca me ponia problema esLint pero la dependencia es los parametros q vienen del click
 
 
     return (
         <div className='container'>
-            <img className='pictures' src={info.image} alt={info._id} />
+            {
+                    info.image
+                    ?
+                    <img className='pictures' src={info.image} alt={info._id} />
+                    :
+                    info.images
+                    ?
+                    <img className='pictures' src={info.images} alt={info._id} />
+                    :
+                    <img className='pictures' src={error} alt='error' />
+            }
             <div>{info.product_name}</div>
             <div>${info.price}</div>
         </div>

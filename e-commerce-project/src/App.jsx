@@ -3,21 +3,28 @@ import Header from "./Pages/Header/Header";
 import Footer from "./Pages/Footer/Footer";
 import { Product } from "./Pages/Product/Product";
 import { Routes, Route, BrowserRouter as Router } from 'react-router-dom'
-import Form from "./Components/Form/Form";
+import { useState } from "react";
+
 
 
 export default function App() {
+
+  const [formText, setFormText] = useState('')
+
   return (
     <div className="App">
       <Router>
-        <Header />
+        <Header
+          handleForm={setFormText} 
+          formText={formText} 
+          />
         <Routes>
           <Route
             className='nombres'
             path="/"
             element={
               <Home
-                senProduct={(_id) => (('id desde el componente padre', _id))}
+              formText={formText}
               />
             }
           />
@@ -26,14 +33,6 @@ export default function App() {
             path="/product/:_id"
             element={
               <Product
-              />
-            }
-          />
-          <Route
-            path='/form/'
-            className='nombres'
-            element={
-              <Form
               />
             }
           />
