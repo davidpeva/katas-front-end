@@ -1,16 +1,6 @@
 .App {
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+  padding-left: 0;
 }
 
 .App-header {
@@ -21,48 +11,90 @@
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: #d2d2d2;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-
-  to {
-    transform: rotate(360deg);
-  }
+.father-container {
+  position: relative;
 }
 
 .nombres {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  /* grid-template-rows: 1fr 1fr 1fr 1fr 1fr; */
   grid-column-gap: 17px;
   grid-row-gap: 17px;
   object-fit: contain;
-  padding: 0 10px ;
   background-color: rgb(255, 255, 255);
-  margin: 10px 0;
+  margin: 1.5rem 0;
+  padding: 0 6rem;
+  z-index: 0;
+
+  overflow-y: auto;
 }
 
 .cards {
-  border: 1px solid rgb(224, 224, 224);
   list-style: none;
+  width: 250px;
+  justify-self: center;
+}
+
+.photos {
+  background-color: #f0f0f0;
+
+  filter: brightness(100%);
+  transition: .4s ease-in-out;
 }
 
 .pictures {
-  height: 200px;
+  height: 220px;
   margin: 10px 0;
   width: 200px;
 }
 
-li {
-    color: rgb(109, 109, 109);
-    text-decoration: none;
+div .p-description {
+  padding-top: 0.5rem;
+  color: #2d2d2d;
+  font-weight: 600;
 }
 
+.p-price {
+  color: #f07066;
+  text-decoration: none;
+}
+
+a:link {
+  text-decoration: none;
+  color: #2d2d2d;
+}
+
+.cards:hover .photos {
+  /* -webkit-filter: brightness(70%); */
+  filter: brightness(70%) grayscale(17%);
+  transition: .8s ease-in-out;
+}
+
+.cards:hover .producto {
+  text-decoration: underline #2d2d2d;
+  transition: .3s ease-in-out #2d2d2d;
+}
+
+.back-to-top {
+  position: sticky;
+  bottom: 0;
+  right: 0;
+  font-size: 3rem;
+  color: #2d2d2d;
+  cursor: pointer;
+  border: none;
+
+  display: block;
+  margin-left: auto;
+  margin-right: 1.5rem;
+  margin-bottom: -2.4rem;
+}
+
+.back-to-top:hover {
+  transition: .3s ease-in-out;
+  color: #f07066;
+}

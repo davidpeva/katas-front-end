@@ -4,6 +4,8 @@ import Footer from "./Pages/Footer/Footer";
 import { Product } from "./Pages/Product/Product";
 import { Routes, Route, BrowserRouter as Router } from 'react-router-dom'
 import { useState } from "react";
+import './App.css'
+
 
 
 

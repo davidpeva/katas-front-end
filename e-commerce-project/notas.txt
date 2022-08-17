@@ -24,3 +24,6 @@ https://docs.google.com/spreadsheets/d/1YU6oPfr3ZgM37d0UBrW4Gn6-8OquVCu5etSVobbe
 
 /video sugerido que es el event loop
 https://www.youtube.com/watch?v=8aGhZQkoFbQ
+
+/creador de borders muy amigable
+https://www.cssmatic.com/es/border-radius

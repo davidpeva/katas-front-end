@@ -1,3 +1,25 @@
 .pagination {
     justify-content: center;
 }
+
+.page-number {
+    color:  #2d2d2d;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.pagination {
+    color:  #2d2d2d;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.page-item.active {
+    color: blueviolet;
+    font-style: italic;
+    font-weight: 600;
+}
+
+.page-link{
+    color:red;
+}
