@@ -2,24 +2,21 @@
     justify-content: center;
 }
 
-.page-number {
+.pagination .page-item .page-link {
     color:  #2d2d2d;
-    text-decoration: none;
     font-weight: 600;
 }
 
-.pagination {
-    color:  #2d2d2d;
-    text-decoration: none;
+.pagination .page-item .active {
+    color: #f0f0f0;
+    background-color: #2d2d2d;
     font-weight: 600;
 }
 
-.page-item.active {
-    color: blueviolet;
-    font-style: italic;
+.pagination .page-item .page-link:hover {
+    color: #f07066;
+    background-color: #f0f0f0;
     font-weight: 600;
+    transition: .3s ease-in-out;
 }
 
-.page-link{
-    color:red;
-}
